@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 
 import com.zakiis.core.exception.ZakiisRuntimeException;
+import com.zakiis.security.RateLimitResponse;
 import com.zakiis.security.annotation.RateLimit;
 import com.zakiis.security.config.RateLimitProperties;
 import com.zakiis.security.service.RateLimitService;
@@ -43,19 +44,27 @@ public class RateLimitAspect {
     	if (RateLimit.NULL_STRING.equals(limitKeyEL)) {
     		limitKey = RateLimitUtil.genRateLimitKey(signature.getDeclaringTypeName(), signature.getName(), joinPoint.getArgs());
     	} else {
-    		limitKey = RateLimitUtil.getValBySpEL(limitKeyEL, signature, joinPoint.getArgs());
+    		limitKey = RateLimitUtil.getStrValBySpEL(limitKeyEL, signature, joinPoint.getArgs());
     	}
     	if (limitKey == null) {
     		throw new ZakiisRuntimeException("Can't generate limit key");
     	}
+    	Integer maxRequestPerDay = RateLimitUtil.getValBySpEL(annotation.maxRequestPerDayEL(), signature, joinPoint.getArgs());
+    	Integer minInterval = RateLimitUtil.getValBySpEL(annotation.minIntervalEL(), signature, joinPoint.getArgs());
     	synchronized (limitKey.intern()) {
-    		limitService.validate(limitKey, annotation.maxRequestPerDay());
+    		limitService.validate(limitKey, maxRequestPerDay);
     		if (annotation.ignoreFailure()) {
     			Object result = joinPoint.proceed();
-    			limitService.request(limitKey, annotation.minInterval(), annotation.maxRequestPerDay());
+    			if (result instanceof RateLimitResponse rateLimitResp) {
+    				if (rateLimitResp.isSuccess()) {
+    					limitService.request(limitKey, minInterval, maxRequestPerDay);
+    				}
+    			} else {
+    				limitService.request(limitKey, minInterval, maxRequestPerDay);
+    			}
     			return result;
     		} else {
-    			limitService.request(limitKey, annotation.minInterval(), annotation.maxRequestPerDay());
+    			limitService.request(limitKey, minInterval, maxRequestPerDay);
     			return joinPoint.proceed();
     		}
 		}

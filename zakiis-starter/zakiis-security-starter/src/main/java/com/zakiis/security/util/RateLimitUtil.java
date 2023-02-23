@@ -6,6 +6,8 @@ import java.util.Optional;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.expression.BeanFactoryResolver;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.expression.Expression;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
@@ -18,6 +20,13 @@ public class RateLimitUtil {
 	
 	static SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
 	static DefaultParameterNameDiscoverer nameDiscoverer = new DefaultParameterNameDiscoverer();
+	static BeanFactoryResolver beanFactoryResolver = null;
+	
+	private static void init(ApplicationContext context) {
+		if (beanFactoryResolver == null) {
+			beanFactoryResolver = new BeanFactoryResolver(context);
+		}
+	}
 
 	/**
 	 * Generate Rate Limit key
@@ -37,17 +46,33 @@ public class RateLimitUtil {
 	 * @throws NoSuchMethodException
 	 * @throws SecurityException
 	 */
-	public static String getValBySpEL(String spEL, MethodSignature methodSignature, Object[] args) throws NoSuchMethodException, SecurityException {
+	public static String getStrValBySpEL(String spEL, MethodSignature methodSignature, Object[] args) throws NoSuchMethodException, SecurityException {
         String[] paramNames = nameDiscoverer.getParameterNames(methodSignature.getMethod());
         if (paramNames != null && paramNames.length > 0) {
             Expression expression = spelExpressionParser.parseExpression(spEL);
             StandardEvaluationContext context = new StandardEvaluationContext();
+            context.setBeanResolver(beanFactoryResolver);
             for (int i = 0; i < args.length; i++) {
                 context.setVariable(paramNames[i], args[i]);
             }
             return Optional.ofNullable(expression.getValue(context))
             	.map(Object::toString)
             	.orElse(null);
+        }
+        return null;
+    }
+	
+	@SuppressWarnings("unchecked")
+	public static <T> T getValBySpEL(String spEL, MethodSignature methodSignature, Object[] args) throws NoSuchMethodException, SecurityException {
+        String[] paramNames = nameDiscoverer.getParameterNames(methodSignature.getMethod());
+        if (paramNames != null && paramNames.length > 0) {
+            Expression expression = spelExpressionParser.parseExpression(spEL);
+            StandardEvaluationContext context = new StandardEvaluationContext();
+            context.setBeanResolver(beanFactoryResolver);
+            for (int i = 0; i < args.length; i++) {
+                context.setVariable(paramNames[i], args[i]);
+            }
+            return (T)expression.getValue(context);
         }
         return null;
     }

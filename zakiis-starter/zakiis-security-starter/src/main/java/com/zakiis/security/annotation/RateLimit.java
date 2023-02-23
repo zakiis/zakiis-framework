@@ -24,13 +24,13 @@ public @interface RateLimit {
 	String NULL_STRING = "nil";
 
 	/** Minimum interval seconds between two request. */
-	int minInterval();
+	String minIntervalEL();
 	
 	/** Determine whether failure request should ignored or not, default true */
 	boolean ignoreFailure() default true;
 	
 	/** The max amount that would be allowed for the request per day, zero represents no limit */
-	int maxRequestPerDay() default 0;
+	String maxRequestPerDayEL() default "0";
 	
 	/** default we use class, method and parameters to generate limit key, you can specified the limit key EL for specified purpose, for example phone and email */
 	String limitKeyEL() default NULL_STRING;
