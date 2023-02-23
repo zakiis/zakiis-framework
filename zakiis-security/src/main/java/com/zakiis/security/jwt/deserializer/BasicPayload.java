@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.zakiis.core.JsonUtil;
+import com.zakiis.core.util.JsonUtil;
 import com.zakiis.security.jwt.interfaces.Payload;
 
 public class BasicPayload implements Payload {

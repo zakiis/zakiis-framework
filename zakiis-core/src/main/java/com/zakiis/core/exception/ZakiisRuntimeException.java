@@ -1,4 +1,4 @@
-package com.zakiis.exception;
+package com.zakiis.core.exception;
 
 public class ZakiisRuntimeException extends RuntimeException implements ZakiisException {
 

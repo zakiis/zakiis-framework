@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.zakiis.core.SecretFieldTokenizerUtil;
+import com.zakiis.core.util.SecretFieldTokenizerUtil;
 
 public class SecretFieldTokenizerUtilTest {
 

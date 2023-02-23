@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.data.redis.core.RedisTemplate;
 
-import com.zakiis.exception.ZakiisRuntimeException;
+import com.zakiis.core.exception.ZakiisRuntimeException;
 import com.zakiis.security.annotation.OptimisticLock;
 import com.zakiis.security.config.OptimisticLockProperties;
 import com.zakiis.security.util.OptimisticLockUtil;

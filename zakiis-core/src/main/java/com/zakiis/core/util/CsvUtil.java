@@ -1,4 +1,4 @@
-package com.zakiis.core;
+package com.zakiis.core.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;

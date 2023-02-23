@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 
-import com.zakiis.exception.ZakiisRuntimeException;
+import com.zakiis.core.exception.ZakiisRuntimeException;
 import com.zakiis.security.annotation.RateLimit;
 import com.zakiis.security.config.RateLimitProperties;
 import com.zakiis.security.service.RateLimitService;

@@ -1,6 +1,6 @@
 package com.zakiis.security.jwt.exception;
 
-import com.zakiis.exception.ZakiisRuntimeException;
+import com.zakiis.core.exception.ZakiisRuntimeException;
 
 public class JWTVerificationException extends ZakiisRuntimeException {
 

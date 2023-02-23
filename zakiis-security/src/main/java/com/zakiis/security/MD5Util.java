@@ -3,7 +3,7 @@ package com.zakiis.security;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import com.zakiis.error.ZakiisAlgorithmError;
+import com.zakiis.core.error.ZakiisAlgorithmError;
 import com.zakiis.security.codec.HexUtil;
 
 /**

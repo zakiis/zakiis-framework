@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 import org.springframework.data.redis.core.RedisTemplate;
 
-import com.zakiis.exception.ZakiisRuntimeException;
+import com.zakiis.core.exception.ZakiisRuntimeException;
 import com.zakiis.security.service.RateLimitService;
 import com.zakiis.security.util.RateLimitUtil;
 

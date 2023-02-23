@@ -18,6 +18,7 @@
 		<module>zakiis-log-starter</module>
 		<module>zakiis-security-starter</module>
 		<module>zakiis-web-starter</module>
+		<module>zakiis-rdb-starter</module>
 	</modules>
 
 </project>

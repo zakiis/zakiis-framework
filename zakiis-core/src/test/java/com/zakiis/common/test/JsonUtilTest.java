@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.zakiis.common.test.model.User;
-import com.zakiis.core.JsonUtil;
+import com.zakiis.core.util.JsonUtil;
 
 public class JsonUtilTest {
 	

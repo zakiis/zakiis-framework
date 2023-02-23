@@ -17,7 +17,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.lang3.RandomUtils;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-import com.zakiis.error.ZakiisAlgorithmError;
+import com.zakiis.core.error.ZakiisAlgorithmError;
 import com.zakiis.security.constants.AESMode;
 import com.zakiis.security.exception.AESDecryptException;
 import com.zakiis.security.exception.AESEncryptException;

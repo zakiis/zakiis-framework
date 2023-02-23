@@ -11,7 +11,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-import com.zakiis.error.ZakiisAlgorithmError;
+import com.zakiis.core.error.ZakiisAlgorithmError;
 import com.zakiis.security.codec.HexUtil;
 import com.zakiis.security.exception.DigestException;
 

@@ -1,6 +1,6 @@
 package com.zakiis.job.exception;
 
-import com.zakiis.exception.ZakiisRuntimeException;
+import com.zakiis.core.exception.ZakiisRuntimeException;
 
 public class JobException extends ZakiisRuntimeException {
 

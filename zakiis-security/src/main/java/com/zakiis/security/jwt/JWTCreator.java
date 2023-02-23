@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.zakiis.core.JsonUtil;
+import com.zakiis.core.util.JsonUtil;
 import com.zakiis.security.codec.Base64Util;
 import com.zakiis.security.jwt.algorithm.Algorithm;
 import com.zakiis.security.jwt.interfaces.PublicClaims;

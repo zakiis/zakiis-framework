@@ -23,7 +23,7 @@ import javax.crypto.NoSuchPaddingException;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-import com.zakiis.error.ZakiisAlgorithmError;
+import com.zakiis.core.error.ZakiisAlgorithmError;
 import com.zakiis.security.codec.Base64Util;
 import com.zakiis.security.exception.RSADecryptException;
 import com.zakiis.security.exception.RSAEncryptException;

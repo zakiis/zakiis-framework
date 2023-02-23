@@ -1,4 +1,4 @@
-package com.zakiis.error;
+package com.zakiis.core.error;
 
 public class ZakiisAlgorithmError extends Error implements ZakiisError {
 

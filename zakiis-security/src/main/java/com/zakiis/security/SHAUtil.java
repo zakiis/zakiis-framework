@@ -6,7 +6,7 @@ import java.security.Security;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-import com.zakiis.error.ZakiisAlgorithmError;
+import com.zakiis.core.error.ZakiisAlgorithmError;
 import com.zakiis.security.codec.HexUtil;
 
 /**

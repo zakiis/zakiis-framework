@@ -11,7 +11,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.zakiis.core.JsonUtil;
+import com.zakiis.core.util.JsonUtil;
 import com.zakiis.security.jwt.interfaces.Payload;
 import com.zakiis.security.jwt.interfaces.PublicClaims;
 

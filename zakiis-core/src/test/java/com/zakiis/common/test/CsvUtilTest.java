@@ -12,8 +12,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.zakiis.common.test.model.User;
-import com.zakiis.core.CsvUtil;
-import com.zakiis.core.JsonUtil;
+import com.zakiis.core.util.CsvUtil;
+import com.zakiis.core.util.JsonUtil;
 
 public class CsvUtilTest {
 

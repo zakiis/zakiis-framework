@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
-import com.zakiis.core.CaptchaUtil;
+import com.zakiis.core.util.CaptchaUtil;
 
 public class CaptchaUtilTest {
 

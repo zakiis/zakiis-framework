@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import com.zakiis.core.SimilarityUtil;
+import com.zakiis.core.util.SimilarityUtil;
 
 public class SimilarityUtilTest {
 

@@ -1,4 +1,4 @@
-package com.zakiis.core;
+package com.zakiis.core.util;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

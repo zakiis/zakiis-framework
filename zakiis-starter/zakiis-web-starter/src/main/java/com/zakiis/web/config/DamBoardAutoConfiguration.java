@@ -2,6 +2,7 @@ package com.zakiis.web.config;
 
 import java.util.List;
 
+import org.springframework.beans.factory.SmartInitializingSingleton;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -31,18 +32,35 @@ public class DamBoardAutoConfiguration {
 	protected static class HttpClientDamBoardConfiguration {
 	
 		@Bean
+		@ConditionalOnMissingBean
 		public DamboardClientHttpRequestFilter damboardClientHttpRequestFilter(DamBoardProperties properties) {
 			log.info("Damboard http request filter enabled.");
 			return new DamboardClientHttpRequestFilter(properties);
 		}
 		
 		@Bean
+		@ConditionalOnMissingBean
 		public RestTemplateCustomizer damBoardRestTemplateCustomizer(DamboardClientHttpRequestFilter filter) {
 			return new RestTemplateCustomizer() {
 				@Override
 				public void customize(RestTemplate restTemplate) {
 					if (!restTemplate.getInterceptors().contains(filter)) {
 						restTemplate.getInterceptors().add(filter);
+					}
+				}
+			};
+		}
+		
+		@Bean
+		@ConditionalOnMissingBean
+		public SmartInitializingSingleton restTemplateInitailizing(List<RestTemplateCustomizer> customizers, List<RestTemplate> restTemplates) {
+			return new SmartInitializingSingleton() {
+				@Override
+				public void afterSingletonsInstantiated() {
+					for (RestTemplate restTemplate : restTemplates) {
+						for (RestTemplateCustomizer customizer : customizers) {
+							customizer.customize(restTemplate);
+						}
 					}
 				}
 			};

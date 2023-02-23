@@ -1,6 +1,6 @@
 package com.zakiis.security.exception;
 
-import com.zakiis.exception.ZakiisRuntimeException;
+import com.zakiis.core.exception.ZakiisRuntimeException;
 
 public class RSAEncryptException extends ZakiisRuntimeException {
 

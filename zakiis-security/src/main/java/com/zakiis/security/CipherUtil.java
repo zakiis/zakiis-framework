@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.ReflectionUtils;
 
-import com.zakiis.core.SecretFieldTokenizerUtil;
+import com.zakiis.core.util.SecretFieldTokenizerUtil;
 import com.zakiis.security.annotation.Cipher;
 import com.zakiis.security.codec.HexUtil;
 import com.zakiis.security.constants.AESMode;
@@ -156,7 +156,8 @@ public class CipherUtil {
 	private static boolean needExcludeClazz(Class<?> clazz) {
 		if (excludeClazz.contains(clazz) 
 				|| clazz.getCanonicalName().startsWith("java.")
-				|| clazz.getCanonicalName().startsWith("javax.")) {
+				|| clazz.getCanonicalName().startsWith("javax.")
+				|| clazz.getCanonicalName().startsWith("jakarta.")) {
 			return true;
 		}
 		return false;

@@ -1,10 +1,10 @@
-package com.zakiis.core;
+package com.zakiis.core.util;
 
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 
-import com.zakiis.exception.ZakiisRuntimeException;
+import com.zakiis.core.exception.ZakiisRuntimeException;
 
 public class IOUtil {
 	

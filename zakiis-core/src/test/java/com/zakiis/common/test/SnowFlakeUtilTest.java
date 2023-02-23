@@ -2,7 +2,7 @@ package com.zakiis.common.test;
 
 import org.junit.jupiter.api.Test;
 
-import com.zakiis.core.SnowFlakeUtil;
+import com.zakiis.core.util.SnowFlakeUtil;
 
 public class SnowFlakeUtilTest {
 

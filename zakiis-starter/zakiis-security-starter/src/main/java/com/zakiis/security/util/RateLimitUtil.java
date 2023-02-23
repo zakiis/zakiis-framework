@@ -11,7 +11,7 @@ import org.springframework.expression.Expression;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
-import com.zakiis.core.JsonUtil;
+import com.zakiis.core.util.JsonUtil;
 import com.zakiis.security.MD5Util;
 
 public class RateLimitUtil {
