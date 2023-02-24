@@ -1,7 +1,5 @@
 package com.zakiis.log.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -17,14 +15,14 @@ import com.zakiis.log.filter.TraceIdFeignRequestFilter;
 import com.zakiis.log.filter.TraceIdHttpRequestFilter;
 
 import feign.RequestInterceptor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @AutoConfiguration
 @ConditionalOnProperty(prefix = ZakiisStarterConstants.LOG_TRACE_ID_PREFIX, name = "enabled", havingValue = "true", matchIfMissing = true)
 @EnableConfigurationProperties(TraceIdProperties.class)
 public class TraceIdAutoConfiguration {
 
-	static Logger log = LoggerFactory.getLogger(TraceIdAutoConfiguration.class);
-	
 	@Bean("zakiisTraceIdFilter")
 	public TraceIdHttpRequestFilter traceIdFilter(TraceIdProperties props) {
 		log.info("Trace id filter for http request enabled.");

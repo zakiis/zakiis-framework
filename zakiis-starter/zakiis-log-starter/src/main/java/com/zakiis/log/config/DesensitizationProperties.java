@@ -14,7 +14,7 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = ZakiisStarterConstants.LOG_DESENSITIZATION_PREFIX)
 public class DesensitizationProperties {
 
-	private boolean enabled;
+	private boolean enabled = true;
 	/** separated by comma, replace center value to * */
 	private String replaceFields;
 	/** separated by comma, replace value to * */

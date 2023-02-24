@@ -14,7 +14,7 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = ZakiisStarterConstants.LOG_TRACE_ID_PREFIX)
 public class TraceIdProperties {
 
-	private boolean enabled;
+	private boolean enabled = true;
 	/** current application name*/
 	private String appName;
 	/** trace id header name*/

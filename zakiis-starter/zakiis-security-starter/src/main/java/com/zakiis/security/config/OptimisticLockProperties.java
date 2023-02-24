@@ -14,5 +14,5 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = ZakiisStarterConstants.SECURITY_OPTIMISTIC_LOCK_PREFIX)
 public class OptimisticLockProperties {
 
-	private boolean enabled = false;
+	private boolean enabled = true;
 }

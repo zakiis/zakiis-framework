@@ -41,11 +41,6 @@
 				<artifactId>zakiis-job</artifactId>
 				<version>${io.github.zakiis.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>io.github.zakiis</groupId>
-				<artifactId>zakiis-starter</artifactId>
-				<version>${io.github.zakiis.version}</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk16 -->
 			<dependency>
 				<groupId>org.bouncycastle</groupId>

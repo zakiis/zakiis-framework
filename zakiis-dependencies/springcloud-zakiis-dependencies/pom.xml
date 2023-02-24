@@ -16,6 +16,7 @@
 	<properties>
 		<spring-cloud.version>2022.0.1</spring-cloud.version>
 		<spring-boot.version>3.0.2</spring-boot.version>
+		<io.github.zakiis.version>0.1.0</io.github.zakiis.version>
 	</properties>
 
 	<dependencyManagement>
@@ -33,6 +34,36 @@
 				<version>${spring-boot.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.github.zakiis</groupId>
+				<artifactId>zakiis-starter</artifactId>
+				<version>${io.github.zakiis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.github.zakiis</groupId>
+				<artifactId>zakiis-log-starter</artifactId>
+				<version>${io.github.zakiis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.github.zakiis</groupId>
+				<artifactId>zakiis-job-starter</artifactId>
+				<version>${io.github.zakiis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.github.zakiis</groupId>
+				<artifactId>zakiis-rdb-starter</artifactId>
+				<version>${io.github.zakiis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.github.zakiis</groupId>
+				<artifactId>zakiis-security-starter</artifactId>
+				<version>${io.github.zakiis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.github.zakiis</groupId>
+				<artifactId>zakiis-web-starter</artifactId>
+				<version>${io.github.zakiis.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

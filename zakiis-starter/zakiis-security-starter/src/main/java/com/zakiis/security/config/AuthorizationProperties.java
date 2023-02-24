@@ -16,7 +16,7 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = ZakiisStarterConstants.SECURITY_AUTHORIZATION_PREFIX)
 public class AuthorizationProperties {
 
-	private boolean enabled = false;
+	private boolean enabled = true;
 	private Set<String> skipPath;
 	private String errorResponseText;
 	

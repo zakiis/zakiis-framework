@@ -59,9 +59,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git://github.com:zakiis/parent.git</connection>
-		<developerConnection>scm:git:ssh://github.com:zakiis/parent.git</developerConnection>
-		<url>http://github.com/zakiis/parent/tree/main</url>
+		<connection>scm:git:git://github.com:zakiis/zakiis-framework.git</connection>
+		<developerConnection>scm:git:ssh://github.com:zakiis/zakiis-framework.git</developerConnection>
+		<url>http://github.com/zakiis/zakiis-framework/tree/main</url>
 	</scm>
 	
 	<build>
@@ -168,8 +168,5 @@
 			<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
-	
-
-	
 
 </project>

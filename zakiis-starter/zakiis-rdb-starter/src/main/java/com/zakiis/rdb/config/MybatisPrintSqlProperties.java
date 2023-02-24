@@ -12,6 +12,6 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = ZakiisStarterConstants.RDB_PRINT_SQL_PREFIX)
 public class MybatisPrintSqlProperties {
 
-	private boolean enabled;
+	private boolean enabled = true;
 	
 }

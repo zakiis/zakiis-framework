@@ -14,5 +14,5 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = ZakiisStarterConstants.SECURITY_RATE_LIMIT_PREFIX)
 public class RateLimitProperties {
 
-	private boolean enabled = false;
+	private boolean enabled = true;
 }

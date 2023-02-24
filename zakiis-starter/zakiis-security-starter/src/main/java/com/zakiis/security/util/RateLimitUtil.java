@@ -22,7 +22,7 @@ public class RateLimitUtil {
 	static DefaultParameterNameDiscoverer nameDiscoverer = new DefaultParameterNameDiscoverer();
 	static BeanFactoryResolver beanFactoryResolver = null;
 	
-	private static void init(ApplicationContext context) {
+	public static void init(ApplicationContext context) {
 		if (beanFactoryResolver == null) {
 			beanFactoryResolver = new BeanFactoryResolver(context);
 		}

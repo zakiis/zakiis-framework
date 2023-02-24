@@ -13,6 +13,11 @@ import com.zakiis.log.holder.TraceIdHolder;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Interceptor for RestTemplate to pass traceId in header.
+ * @author Liu Zhenghua
+ * 2023-02-23 18:34:33
+ */
 @RequiredArgsConstructor
 public class TraceIdClientHttpRequestFilter implements ClientHttpRequestInterceptor {
 

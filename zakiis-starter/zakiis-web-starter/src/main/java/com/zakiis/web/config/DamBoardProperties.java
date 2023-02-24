@@ -16,7 +16,7 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = ZakiisStarterConstants.WEB_DAMBOARD_PREFIX)
 public class DamBoardProperties {
 
-	private boolean enabled = false;
+	private boolean enabled = true;
 	private List<DamBoard> rules;
 
 	@Getter

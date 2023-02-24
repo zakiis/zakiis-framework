@@ -7,8 +7,9 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 
 /**
  * Log desensitizaiton
- * add the following line to logback configuration file in configuration element
- * &lt;conversionRule conversionWord="msg" converterClass="com.zakiis.security.logging.DesensitizationConverter"/&gt;
+ * add the following line to logback configuration file in configuration element: <pre>{@code
+ *   <conversionRule conversionWord="msg" converterClass="com.zakiis.log.converter.DesensitizationConverter"/>
+ * }</pre>
  * @author Liu Zhenghua
  * 2023年2月20日 下午6:25:35
  */
