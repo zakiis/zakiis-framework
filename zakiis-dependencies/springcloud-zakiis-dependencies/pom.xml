@@ -36,6 +36,11 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
+			    <groupId>com.alibaba</groupId>
+			    <artifactId>druid-spring-boot-starter</artifactId>
+			    <version>1.2.16</version>
+			</dependency>
+			<dependency>
 				<groupId>io.github.zakiis</groupId>
 				<artifactId>zakiis-starter</artifactId>
 				<version>${io.github.zakiis.version}</version>

@@ -23,7 +23,7 @@ import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
-import com.zakiis.job.dto.JobDTO;
+import com.zakiis.job.dto.JobInfo;
 import com.zakiis.job.exception.JobException;
 
 public class QuartzService {
@@ -142,14 +142,14 @@ public class QuartzService {
         }
     }
 	
-	public List<JobDTO> queryJob(String jobName, String jobGroupName) {
-		List<JobDTO> jobList = null;
+	public List<JobInfo> queryJob(String jobName, String jobGroupName) {
+		List<JobInfo> jobList = null;
 		try {
 			JobKey jobKey = JobKey.jobKey(jobName, jobGroupName);
 			List<? extends Trigger> triggers = scheduler.getTriggersOfJob(jobKey);
-			jobList = new ArrayList<JobDTO>(triggers.size());
+			jobList = new ArrayList<JobInfo>(triggers.size());
 			for (Trigger trigger : triggers) {
-				JobDTO jobDTO = new JobDTO();
+				JobInfo jobDTO = new JobInfo();
 				jobDTO.setJobName(jobKey.getName());
 				jobDTO.setJobGroupName(jobKey.getGroup());
 				jobDTO.setTriggerKey(trigger.getKey().toString());
@@ -167,16 +167,16 @@ public class QuartzService {
 		return jobList;
 	}
 	
-	public List<JobDTO> queryAllJob() {
-		List<JobDTO> jobList = null;
+	public List<JobInfo> queryAllJob() {
+		List<JobInfo> jobList = null;
 		try {
 			GroupMatcher<JobKey> matcher = GroupMatcher.anyJobGroup();
 			Set<JobKey> jobKeys = scheduler.getJobKeys(matcher);
-			jobList = new ArrayList<JobDTO>(jobKeys.size());
+			jobList = new ArrayList<JobInfo>(jobKeys.size());
 			for (JobKey jobKey : jobKeys) {
 				List<? extends Trigger> triggers = scheduler.getTriggersOfJob(jobKey);
 				for (Trigger trigger : triggers) {
-					JobDTO jobDTO = new JobDTO();
+					JobInfo jobDTO = new JobInfo();
 					jobDTO.setJobName(jobKey.getName());
 					jobDTO.setJobGroupName(jobKey.getGroup());
 					jobDTO.setTriggerKey(trigger.getKey().toString());
@@ -195,16 +195,16 @@ public class QuartzService {
 		return jobList;
 	}
 	
-	public List<JobDTO> queryRunJob() {
-		List<JobDTO> jobList = null;
+	public List<JobInfo> queryRunJob() {
+		List<JobInfo> jobList = null;
         try {
             List<JobExecutionContext> executingJobs = scheduler.getCurrentlyExecutingJobs();
-            jobList = new ArrayList<JobDTO>(executingJobs.size());
+            jobList = new ArrayList<JobInfo>(executingJobs.size());
             for (JobExecutionContext executingJob : executingJobs) {
                 JobDetail jobDetail = executingJob.getJobDetail();
                 JobKey jobKey = jobDetail.getKey();
                 Trigger trigger = executingJob.getTrigger();
-                JobDTO jobDTO = new JobDTO();
+                JobInfo jobDTO = new JobInfo();
 				jobDTO.setJobName(jobKey.getName());
 				jobDTO.setJobGroupName(jobKey.getGroup());
 				jobDTO.setTriggerKey(trigger.getKey().toString());
