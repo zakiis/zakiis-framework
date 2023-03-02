@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 public class OptimisticLockAspect {
 
 	private final OptimisticLockProperties optimisticLockProperties;
-	private final RedisTemplate<String, Object> redisTemplate;
+	private final RedisTemplate<Object, Object> redisTemplate;
 	
 	/**
     * @within 方法所属类如果包含了注解则会被拦截

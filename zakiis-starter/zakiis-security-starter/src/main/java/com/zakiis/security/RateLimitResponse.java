@@ -1,9 +1,11 @@
 package com.zakiis.security;
 
+import java.io.Serializable;
+
 import com.zakiis.security.annotation.RateLimit;
 import com.zakiis.security.aspect.RateLimitAspect;
 
-public interface RateLimitResponse {
+public interface RateLimitResponse extends Serializable {
 
 	/**
 	 * It's used by {@link RateLimitAspect} to determine whether to delete NX key in redis or not if you set {@link RateLimit#ignoreFailure()} = true

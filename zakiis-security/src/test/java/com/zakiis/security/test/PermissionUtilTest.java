@@ -21,23 +21,23 @@ public class PermissionUtilTest {
 		Set<String> userRoles = new HashSet<String>(Arrays.asList("USER_QUERY", "ORDER_QUERY"));
 		
 		Permission permission = PermissionUtilTest.class.getMethod("orderQuery").getAnnotation(Permission.class);
-		PermissionUtil.checkFunctionAccess(userRoles, permission);
+		PermissionUtil.checkPrivileges(userRoles, permission);
 		log.info("User have access on order query method");
 		
 		try {
 			Permission permission2 = PermissionUtilTest.class.getMethod("orderModify").getAnnotation(Permission.class);
-			PermissionUtil.checkFunctionAccess(userRoles, permission2);
+			PermissionUtil.checkPrivileges(userRoles, permission2);
 		} catch (NoPermissionException e) {
 			log.info("user don't have access on order modify method");
 		}
 	}
 	
-	@Permission(functions = {"ORDER_QUERY", "ORDER_MANAGE"})
+	@Permission(code = {"ORDER_QUERY", "ORDER_MANAGE"})
 	public void orderQuery() {
 		
 	}
 	
-	@Permission(functions = {"ORDER_MANAGE"})
+	@Permission(code = {"ORDER_MANAGE"})
 	public void orderModify() {
 		
 	}

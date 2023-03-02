@@ -23,7 +23,7 @@ public class OptimisticLockAutoConfiguration {
 	@Bean
 	@ConditionalOnMissingBean
 	public OptimisticLockAspect optimisticLockAspect(OptimisticLockProperties optimisticLockProperties,
-			RedisTemplate<String, Object> redisTemplate) {
+			RedisTemplate<Object, Object> redisTemplate) {
 		log.info("Feature optimistic lock aspect enabled.");
 		return new OptimisticLockAspect(optimisticLockProperties, redisTemplate);
 	}

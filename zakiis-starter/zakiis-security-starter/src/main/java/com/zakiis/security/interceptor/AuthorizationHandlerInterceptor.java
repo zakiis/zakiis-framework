@@ -35,7 +35,7 @@ public class AuthorizationHandlerInterceptor implements HandlerInterceptor {
 			Permission permission = handlerMethod.getMethodAnnotation(Permission.class);
 			Set<String> functions = realm.getFunctions(request);
 			try {
-				PermissionUtil.checkFunctionAccess(functions, permission);
+				PermissionUtil.checkPrivileges(functions, permission);
 			} catch (NoPermissionException e) {
 				response.setStatus(HttpStatus.UNAUTHORIZED.value());
 				response.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);

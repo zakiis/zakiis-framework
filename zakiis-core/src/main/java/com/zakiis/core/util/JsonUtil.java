@@ -1,5 +1,6 @@
 package com.zakiis.core.util;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -75,7 +76,7 @@ public class JsonUtil {
         	return null;
         }
         try {
-			return mapper.getDateFormat().parse(dateStr);
+			return ((DateFormat)mapper.getDateFormat().clone()).parse(dateStr);
 		} catch (Exception e) {
 			logger.error("to date error.", e);
 		}

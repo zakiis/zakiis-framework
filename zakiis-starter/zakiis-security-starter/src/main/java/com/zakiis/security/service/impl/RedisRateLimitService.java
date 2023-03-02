@@ -18,7 +18,7 @@ public class RedisRateLimitService implements RateLimitService {
 
 	private final static String INTERVAL_KEY_PREFIX = "rate_limit_interval_";
 	private final static String DAY_KEY_PREFIX = "rate_limit_day_";
-	private final RedisTemplate<String, Object> redisTemplate;
+	private final RedisTemplate<Object, Object> redisTemplate;
 
 	@Override
 	public void validate(String rateLimitKey, int maxRequestPerDay) {

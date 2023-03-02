@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @AutoConfiguration
-@EnableConfigurationProperties(OptimisticLockProperties.class)
+@EnableConfigurationProperties(RateLimitProperties.class)
 @ConditionalOnProperty(prefix = ZakiisStarterConstants.SECURITY_RATE_LIMIT_PREFIX , name = "enabled" , havingValue = "true", matchIfMissing = true)
 @ConditionalOnClass(name = "org.springframework.data.redis.core.RedisTemplate")
 public class RateLimitAutoConfiguration implements ApplicationContextAware {
@@ -30,13 +30,13 @@ public class RateLimitAutoConfiguration implements ApplicationContextAware {
 	@ConditionalOnMissingBean
 	public RateLimitAspect rateLimitAspect(RateLimitProperties rateLimitProperties,
 			RateLimitService limitService) {
-		log.info("Feature Rate limit aspect enabled.");
+		log.info("Feature rate limit aspect enabled.");
 		return new RateLimitAspect(rateLimitProperties, limitService);
 	}
 
 	@Bean
 	@ConditionalOnMissingBean
-	public RateLimitService rateLimitService(RedisTemplate<String, Object> redisTemplate) {
+	public RateLimitService rateLimitService(RedisTemplate<Object, Object> redisTemplate) {
 		return new RedisRateLimitService(redisTemplate);
 	}
 

@@ -1,4 +1,4 @@
-package com.zakiis;
+package com.zakiis.core;
 
 public interface ZakiisThrowable {
 

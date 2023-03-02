@@ -11,8 +11,8 @@ import java.lang.annotation.Target;
 @Documented
 public @interface Permission {
 	
-	/** functions which can access this method, user only need one of the roles */
-	String[] functions() default {};
+	/** code of this method, user only need one of the codes */
+	String[] code() default {};
 	
 	/** if bypass equals true, this method can be accessed by anyone*/
 	boolean bypass() default false;
