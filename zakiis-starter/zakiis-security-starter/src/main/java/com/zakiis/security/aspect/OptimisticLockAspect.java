@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
 import com.zakiis.core.exception.ZakiisRuntimeException;
 import com.zakiis.security.annotation.OptimisticLock;
@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 public class OptimisticLockAspect {
 
 	private final OptimisticLockProperties optimisticLockProperties;
-	private final RedisTemplate<Object, Object> redisTemplate;
+	private final StringRedisTemplate redisTemplate;
 	
 	/**
     * @within 方法所属类如果包含了注解则会被拦截

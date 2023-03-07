@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
 import com.zakiis.core.constants.ZakiisStarterConstants;
 import com.zakiis.security.aspect.OptimisticLockAspect;
@@ -23,7 +23,7 @@ public class OptimisticLockAutoConfiguration {
 	@Bean
 	@ConditionalOnMissingBean
 	public OptimisticLockAspect optimisticLockAspect(OptimisticLockProperties optimisticLockProperties,
-			RedisTemplate<Object, Object> redisTemplate) {
+			StringRedisTemplate redisTemplate) {
 		log.info("Feature optimistic lock aspect enabled.");
 		return new OptimisticLockAspect(optimisticLockProperties, redisTemplate);
 	}

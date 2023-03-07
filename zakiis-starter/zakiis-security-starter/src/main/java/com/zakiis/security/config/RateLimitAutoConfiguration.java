@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
 import com.zakiis.core.constants.ZakiisStarterConstants;
 import com.zakiis.security.aspect.RateLimitAspect;
@@ -36,7 +36,7 @@ public class RateLimitAutoConfiguration implements ApplicationContextAware {
 
 	@Bean
 	@ConditionalOnMissingBean
-	public RateLimitService rateLimitService(RedisTemplate<Object, Object> redisTemplate) {
+	public RateLimitService rateLimitService(StringRedisTemplate redisTemplate) {
 		return new RedisRateLimitService(redisTemplate);
 	}
 
