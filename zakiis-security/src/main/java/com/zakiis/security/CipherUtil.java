@@ -157,7 +157,8 @@ public class CipherUtil {
 		if (excludeClazz.contains(clazz) 
 				|| clazz.getCanonicalName().startsWith("java.")
 				|| clazz.getCanonicalName().startsWith("javax.")
-				|| clazz.getCanonicalName().startsWith("jakarta.")) {
+				|| clazz.getCanonicalName().startsWith("jakarta.")
+				|| clazz.getCanonicalName().startsWith("com.baomidou")) {
 			return true;
 		}
 		return false;
