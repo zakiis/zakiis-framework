@@ -13,4 +13,6 @@ public interface ZakiisStarterConstants {
 	
 	String RDB_CIPHER_PREFIX = "zakiis.rdb.cipher";
 	String RDB_PRINT_SQL_PREFIX = "zakiis.rdb.print-sql";
+	
+	String GATEWAY_PREFIX = "zakiis.gateway";
 }

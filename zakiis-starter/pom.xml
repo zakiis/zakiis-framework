@@ -14,6 +14,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>zakiis-gateway-starter</module>
 		<module>zakiis-job-starter</module>
 		<module>zakiis-log-starter</module>
 		<module>zakiis-security-starter</module>

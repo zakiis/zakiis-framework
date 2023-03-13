@@ -70,6 +70,11 @@
 				<artifactId>zakiis-web-starter</artifactId>
 				<version>${io.github.zakiis.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>io.github.zakiis</groupId>
+				<artifactId>zakiis-gateway-starter</artifactId>
+				<version>${io.github.zakiis.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
